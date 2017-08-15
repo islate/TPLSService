@@ -1,0 +1,7 @@
+platform :ios, '8.0'
+
+source 'https://github.com/islate/SlateSpecs.git'
+
+target 'TPLSTest' do
+    pod 'TPLSService'
+end
