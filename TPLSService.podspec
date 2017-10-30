@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TPLSService"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "Third Party Login & Share Service SDK"
 
   s.description      = <<-DESC
@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.source_files = "TPLSService/*.{h,m}"
 
-  s.dependency "SinaWeibo-Slate"
-  s.dependency "WeChat-Slate"
+  s.dependency "SinaWeibo-Slate", "0.1.1"
+  s.dependency "WeChat-Slate", "0.1.1"
   s.dependency "QQ-Slate"
   s.dependency "AVOSCloud"
 end

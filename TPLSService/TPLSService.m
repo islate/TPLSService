@@ -77,16 +77,16 @@
 
 #pragma mark - weibo
 
-- (void)weiboLogin:(void(^_Nonnull)(BOOL success, NSError * _Nullable error, NSString * _Nullable uid, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo))loginBlock
+- (void)weiboLogin:(void(^_Nonnull)(BOOL success, NSError * _Nullable error, NSString * _Nullable uid, NSString * _Nullable accessToken, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo))loginBlock
 {
     [[WeiboWrapper sharedWrapper] weiboLogout];
-    [[WeiboWrapper sharedWrapper] weiboProfile:^(BOOL success, NSString *weiboUid, NSString *weiboNickname, NSString *weiboAvatarUrl, NSString *userAddingInfo) {
+    [[WeiboWrapper sharedWrapper] weiboProfile:^(BOOL success, NSString *weiboUid, NSString * accessToken, NSString *weiboNickname, NSString *weiboAvatarUrl, NSString *userAddingInfo) {
         if (loginBlock) {
             NSError *error = nil;
             if (!success) {
                 error = [WeiboWrapper sharedWrapper].lastError;
             }
-            loginBlock(success, error, weiboUid, weiboNickname, weiboAvatarUrl, userAddingInfo);
+            loginBlock(success, error, weiboUid, accessToken, weiboNickname, weiboAvatarUrl, userAddingInfo);
         }
     }];
 }
@@ -108,11 +108,11 @@
 
 #pragma mark - wechat
 
-- (void)wechatLogin:(void (^_Nonnull)(BOOL success, NSError * _Nullable error, NSString * _Nullable openId, NSString * _Nullable unionId, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo))loginBlock
+- (void)wechatLogin:(void (^_Nonnull)(BOOL success, NSError * _Nullable error, NSString * _Nullable openId, NSString * _Nullable accessToken, NSString * _Nullable unionId, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo))loginBlock
 {
-    [[WeChatWrapper sharedWrapper] login:^(BOOL success, NSError *error, NSString *openId, NSString *unionId, NSString *nickname, NSString *avatarUrl, NSString *rawInfo) {
+    [[WeChatWrapper sharedWrapper] login:^(BOOL success, NSError *error, NSString *openId, NSString * accessToken, NSString *unionId, NSString *nickname, NSString *avatarUrl, NSString *rawInfo) {
         if (loginBlock) {
-            loginBlock(success, error, openId, unionId, nickname, avatarUrl, rawInfo);
+            loginBlock(success, error, openId, accessToken, unionId, nickname, avatarUrl, rawInfo);
         }
     }];
 }

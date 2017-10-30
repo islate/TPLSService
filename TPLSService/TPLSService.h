@@ -25,7 +25,7 @@
 - (void)applicationDidBecomeActive;
 
 // weibo
-- (void)weiboLogin:(void(^_Nonnull)(BOOL success, NSError * _Nullable error, NSString * _Nullable uid, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo))loginBlock;
+- (void)weiboLogin:(void(^_Nonnull)(BOOL success, NSError * _Nullable error, NSString * _Nullable uid, NSString * _Nullable accessToken, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo))loginBlock;
 - (void)weiboShareWithContent:(NSString *_Nonnull)content
                         image:(UIImage * _Nullable )image
                           url:(NSURL * _Nullable )url
@@ -33,7 +33,7 @@
                      editable:(BOOL)editable;
 
 // wechat
-- (void)wechatLogin:(void (^_Nonnull)(BOOL success, NSError * _Nullable error, NSString * _Nullable openId, NSString * _Nullable unionId, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo))loginBlock;
+- (void)wechatLogin:(void (^_Nonnull)(BOOL success, NSError * _Nullable error, NSString * _Nullable openId, NSString * _Nullable accessToken, NSString * _Nullable unionId, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo))loginBlock;
 - (BOOL)isWechatInstalled;
 - (void)wechatShareWithContent:(NSString *_Nonnull)content
                          image:(UIImage * _Nullable )image

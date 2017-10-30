@@ -4,5 +4,5 @@ source 'https://github.com/islate/SlateSpecs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'TPLSTest' do
-    pod 'TPLSService'
+    pod 'TPLSService', :path => '../'
 end

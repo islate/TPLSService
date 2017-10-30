@@ -19,7 +19,7 @@
 @implementation ViewController
 
 - (IBAction)weiboLogin:(id)sender {
-    [[TPLSService sharedService] weiboLogin:^(BOOL success, NSError * _Nullable error, NSString * _Nullable uid, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo) {
+    [[TPLSService sharedService] weiboLogin:^(BOOL success, NSError * _Nullable error, NSString * _Nullable uid, NSString * _Nullable accessToken, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo) {
         if (success) {
             NSLog(@"weibo login success!");
             
@@ -47,7 +47,7 @@
 }
 
 - (IBAction)wechatLogin:(id)sender {
-    [[TPLSService sharedService] wechatLogin:^(BOOL success, NSError * _Nullable error, NSString * _Nullable openId, NSString * _Nullable unionId, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo) {
+    [[TPLSService sharedService] wechatLogin:^(BOOL success, NSError * _Nullable error, NSString * _Nullable openId, NSString * _Nullable accessToken, NSString * _Nullable unionId, NSString * _Nullable nickname, NSString * _Nullable avatarUrl, NSString * _Nullable rawInfo) {
         if (success) {
             NSLog(@"wechat login success!");
 
